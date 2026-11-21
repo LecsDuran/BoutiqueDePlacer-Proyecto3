@@ -1,0 +1,213 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Boutique De Placer</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Fuentes de Boutique de Placer -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Estilos personalizados de Boutique de Placer -->
+<link rel="stylesheet" href="styles.css">
+
+        <!-- Biblioteca de íconos para los botones de la Tiendita -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    </head>
+    <
+<body style="background-color: #FFFAF8;">
+
+    <!-- Encabezado principal de Boutique de Placer -->
+    <header class="container mt-4 mb-4">
+        <div class="text-center rounded-4 p-5"
+             style="background-color: rgba(247, 181, 160, 0.50);">
+
+            
+            <h1 class="display-3" style="color: #34355B;">
+
+                Boutique de Placer
+            </h1>
+
+            <p class="mb-0" style="color: #34355B;">
+                Explora, conecta, disfruta.
+            </p>
+
+        </div>
+    </header>
+
+    <!-- Catálogo visual de Boutique de Placer -->
+    <section class="container mb-5" id="productos">
+
+        <!-- Título de la sección -->
+        <div class="text-center mb-4">
+            <h2 class="titulo-seccion">Nuestros productos</h2>
+            <p class="texto-suave">
+                Descubre nuestra selección de bienestar íntimo.
+            </p>
+        </div>
+
+        <!-- Espacio donde JavaScript mostrará los productos -->
+        <div id="catalogoVisual"
+             class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        </div>
+
+    </section>
+
+
+    <!-- ===== DASHBOARD DE VENTAS ===== -->
+    <section class="container mb-5" id="dashboard">
+
+        <div class="dashboard-encabezado text-center mb-4">
+            <h2 class="titulo-seccion mb-2">Dashboard de Ventas</h2>
+            <p class="texto-suave mb-0">
+                Análisis de ventas de Boutique de Placer
+            </p>
+        </div>
+
+        <!-- Indicadores KPI -->
+        <div class="row g-3 mb-4">
+
+            <!-- Ingresos totales -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center">
+                        <h3 class="fs-6">Ingresos totales</h3>
+                        <p class="fs-3 fw-bold" id="kpiIngresos">$0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unidades vendidas -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center">
+                        <h3 class="fs-6">Unidades vendidas</h3>
+                        <p class="fs-3 fw-bold" id="kpiUnidades">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Número de ventas -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center">
+                        <h3 class="fs-6">Número de ventas</h3>
+                        <p class="fs-3 fw-bold" id="kpiVentas">0</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Gráficas -->
+        <div class="row g-4">
+
+            <!-- Gráfica de productos vendidos -->
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h3 class="fs-5">Productos más vendidos</h3>
+                        <canvas id="graficaProductos"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráfica de ingresos por fecha -->
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h3 class="fs-5">Ingresos por día</h3>
+                        <canvas id="graficaFechas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Formulario y tabla de administración -->
+    <div class="container">
+        <div class="row g-4">               
+
+            <!-- Formulario de Registro -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white font-weight-bold fw-bold">
+                            <i class="me-1 text-primary"></i> Registrar Producto
+                        </div>
+                        <div class="card-body">
+                            <form id="formProducto">
+                                <div class="mb-3">
+                                   
+                                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                                    <input type="number" step="0.01" min="0.01" class="form-control" id="precio" placeholder="Ej. estimulante" required>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precio" class="form-label">Precio ($)</label>
+                                    <input type="number" step="0.5" class="form-control" id="precio" placeholder="25.00" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cantidad" class="form-label">Cantidad Disponible</label>
+                                    <input type="number" min="0" step="1" class="form-control" id="cantidad" placeholder="Ej. 20" required>
+
+                                </div>
+
+                        <!-- Ruta de la fotografía del producto -->
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label">Imagen del Producto (opcional)</label>
+                            <input type="text" class="form-control" id="imagen"
+                                   placeholder="imagenes/producto.jpg">
+                        </div>
+
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="bi bi-save me-1"></i> Guardar Producto
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Inventario -->
+                <div class="col-md-8">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+                            <span><i class="me-1 text-primary"></i> Catálogo de Productos</span>
+                            <span class="badge bg-secondary" id="totalProductos">0 productos</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th class="text-end me-3">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaProductos">
+                                        <!-- Las filas se cargan dinámicamente con JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Biblioteca Chart.js para las gráficas -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Funcionalidades de nuestra tienda -->
+        <script src="app.js"></script>
+    </body>
+</html>
